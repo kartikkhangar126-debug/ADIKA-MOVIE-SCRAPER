@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const handler = require('./api/index');
-
+const handler = require('./api/index.js'); // .js भी जोड़ें
 const app = express();
 const PORT = process.env.PORT || 3000;
 
