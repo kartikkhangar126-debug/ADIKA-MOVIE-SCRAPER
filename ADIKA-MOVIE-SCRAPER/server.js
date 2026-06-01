@@ -3,7 +3,7 @@ const cors = require('cors');
 const handler = require('./api/index.js');
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+const handler = require('./api/index.js'); // .js भी जोड़ें
 app.use(cors());
 
 // Render doesn't have a built-in handler like Vercel,
