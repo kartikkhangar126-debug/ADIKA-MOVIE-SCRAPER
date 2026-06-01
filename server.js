@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const handler = require('./api/index');
-const handler = require('./api/index.js'); // .js भी जोड़ें
+
+// केवल एक बार handler को इम्पोर्ट करें
+const handler = require('./api/index.js');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -10,10 +12,10 @@ app.use(cors());
 
 // API route
 app.get('/api', async (req, res) => {
-  // Vercel handler को Express format में कॉल करना
   try {
     await handler(req, res);
   } catch (err) {
+    console.error("API Error:", err);
     res.status(500).send(err.message);
   }
 });
